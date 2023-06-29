@@ -26,7 +26,7 @@ export default function Login() {
     } else {
       console.log("Sign in needed");
     }
-  }, [user]);
+  }, [user, route]);
 
   return (
     <div className="drop-shadow-xl mt-32 p-10 text-gray-700 rounded-lg">

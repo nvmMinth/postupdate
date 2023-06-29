@@ -27,7 +27,7 @@ export default function Dashboard() {
     }
     useEffect(() => {
         getDashboard()
-    }, [user, loading])
+    }, [user, loading, getDashboard])
 
     // Delete post
     const deletePost = async (id) => {

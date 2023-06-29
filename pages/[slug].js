@@ -12,6 +12,7 @@ import {
   Timestamp,
   updateDoc,
 } from "firebase/firestore";
+import Image from "next/image";
 
 export default function Detail() {
   const route = useRouter();
@@ -55,7 +56,7 @@ export default function Detail() {
   useEffect(() => {
     if (!route.isReady) return;
     getComments();
-  }, [route.isReady]);
+  }, [route.isReady, getComments]);
 
   return (
     <div>
@@ -80,10 +81,13 @@ export default function Detail() {
             <h2 className="font-bold">Comments</h2>
 
             {allComments?.map((comment) => (
-              <div className="border-b-2 p-4 bg-white my-4">
+              <div
+                className="border-b-2 p-4 bg-white my-4"
+                key={comment.username}
+              >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <img
+                    <Image
                       src={comment.avatar}
                       alt="avatar"
                       className="rounded-full w-10"
